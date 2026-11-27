@@ -1,0 +1,47 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <style>
+    body { width: 300px; margin: 12px; font: 14px system-ui, sans-serif; }
+    input, button { width: 100%; box-sizing: border-box; margin: 4px 0; padding: 6px; }
+    label { display: block; margin-top: 6px; }
+    #status { margin-top: 8px; min-height: 1.2em; font-size: 12px; }
+    .hidden { display: none; }
+  </style>
+</head>
+<body>
+  <section id="login">
+    <p class="hint">New here? Type an email and a new password (8+ characters), then click <strong>Register</strong>. Already have an account? Type your details and click <strong>Log in</strong>.</p>
+    <input id="email" type="email" placeholder="Email" autocomplete="username">
+    <input id="password" type="password" placeholder="Password (8-72 characters)" autocomplete="current-password">
+    <button id="loginBtn">Log in</button>
+    <button id="registerBtn">Register</button>
+  </section>
+  <section id="main" class="hidden">
+    <label>Deadline alerts
+      <select id="poll">
+        <option value="15">Check every 15 min</option>
+        <option value="30">Check every 30 min</option>
+        <option value="60">Check every hour</option>
+        <option value="1440">Once a day (one summary)</option>
+        <option value="0">Off</option>
+      </select>
+    </label>
+
+    <button id="scanBtn">Scan this page</button>
+    <button id="dashBtn">Open dashboard</button>
+    <button id="logoutBtn">Log out</button>
+  </section>
+  <section id="review" class="hidden">
+    <label>Title <input id="title" maxlength="255"></label>
+    <label>Budget (USD) <input id="budget" type="number" min="0" step="0.01"></label>
+    <label>Deadline <input id="deadline" type="date"></label>
+    <button id="syncBtn">Sync</button>
+    <button id="cancelBtn">Cancel</button>
+  </section>
+  <div id="status"></div>
+  <script src="../config.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>

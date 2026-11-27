@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Privacy Policy – Artist Commission Tracker</title>
+  <style>
+    :root { color-scheme: light dark; }
+    body { font: 16px/1.6 system-ui, sans-serif; max-width: 42rem; margin: 2rem auto; padding: 0 1rem; }
+    h1 { font-size: 1.6rem; }
+    h2 { font-size: 1.15rem; margin-top: 2rem; }
+    code { font-size: 0.95em; }
+  </style>
+</head>
+<body>
+  <h1>Privacy Policy – Artist Commission Tracker</h1>
+  <p>Last updated: December 1, 2026</p>
+
+  <p>Artist Commission Tracker is a browser extension and web dashboard that helps freelance artists keep track of their commissions. This page explains what it does with your data.</p>
+
+  <h2>What the extension reads</h2>
+  <p>Only when you click <strong>Scan this page</strong> on vgen.co, x.com, twitter.com or discord.com, the extension reads the text you have selected on that page. If nothing is selected, it reads a limited amount of the visible page text instead. It looks for a price and a deadline. This analysis happens inside your browser, and the text it reads is not sent anywhere.</p>
+  <p>The selected text can include messages written by other people, for example a client in a Discord chat. The extension does not send those messages to the server. Only the fields listed below leave your browser, and only after you have reviewed them and pressed <strong>Sync</strong>.</p>
+
+  <h2>What is stored on our server</h2>
+  <ul>
+    <li><strong>Your account:</strong> your email address and your password, stored only as a salted hash (bcrypt), never as plain text.</li>
+    <li><strong>Each commission you sync:</strong> a title (it starts as the first line of your selection, and you can edit it before syncing), a budget, a deadline, the platform name, a link to the page, the status you set, and a confidence score from the scanner.</li>
+    <li>For Discord pages, the link also carries a short code derived from the text you selected. It is used only to tell two different messages in the same chat apart, so the same message is not saved twice.</li>
+    <li><strong>Alert records:</strong> which of your commissions have already triggered a deadline alert.</li>
+  </ul>
+
+  <h2>What stays on your device</h2>
+  <p>The extension keeps your login token and your alert-frequency setting in the browser's local extension storage. Deadline alerts are shown as system notifications.</p>
+
+  <h2>What we do not do</h2>
+  <ul>
+    <li>We do not sell your data or share it with third parties.</li>
+    <li>We do not show ads and we do not use analytics or tracking tools.</li>
+    <li>We do not read pages in the background. The extension reads a page only when you click <strong>Scan this page</strong>.</li>
+    <li>We use your data only to provide the commission-tracking features described here.</li>
+  </ul>
+
+  <h2>Where your data is kept</h2>
+  <p>The server runs on Render and the database runs on Neon, both in Singapore. Data travels between your browser and the server over HTTPS.</p>
+
+  <h2>Permissions the extension asks for</h2>
+  <ul>
+    <li><code>storage</code>: to remember your login and settings.</li>
+    <li><code>alarms</code> and <code>notifications</code>: to check for upcoming deadlines and show alerts.</li>
+    <li>Access to vgen.co, x.com, twitter.com and discord.com: so the Scan button can read the text you select on those sites.</li>
+        <li>Access to our server and our dashboard website: to save and load your commissions, and so a notification can bring you back to a dashboard tab you already have open instead of opening a new one.</li>
+  </ul>
+
+  <h2>Keeping and deleting your data</h2>
+  <p>Your data is kept until you ask for it to be deleted. To delete your account and everything stored with it, email <a href="mailto:[CommishTracker@proton.me]">CommishTracker@proton.me</a>.</p>
+
+  <h2>Children</h2>
+  <p>This service is not directed at children.</p>
+
+  <h2>Changes</h2>
+  <p>If this policy changes, the updated version will be posted on this page with a new date.</p>
+
+  <h2>Contact</h2>
+  <p>Questions about this policy: <a href="mailto:[CommishTracker@proton.me]">CommishTracker@proton.me</a></p>
+</body>
+</html>

@@ -1,0 +1,20 @@
+{
+  "manifest_version": 3,
+  "name": "Artist Commission Tracker",
+  "version": "1.0.0",
+  "description": "Scan commission details from Vgen, X/Twitter and Discord, track deadlines, and get alerts before they are due.",
+  "icons": { "16": "icons/icon16.png", "32": "icons/icon32.png", "48": "icons/icon48.png", "128": "icons/icon128.png" },
+  "permissions": ["storage", "alarms", "notifications"],
+    "host_permissions": ["https://artist-commission-tracker.onrender.com/*", "https://commission-tracker-dashboard.onrender.com/*"],
+  "background": { "service_worker": "background.js" },
+  "action": {
+    "default_popup": "popup/popup.html",
+    "default_icon": { "16": "icons/icon16.png", "32": "icons/icon32.png" }
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://vgen.co/*", "https://*.vgen.co/*", "https://x.com/*", "https://twitter.com/*", "https://discord.com/*"],
+      "js": ["content.js"]
+    }
+  ]
+}
