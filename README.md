@@ -6,7 +6,7 @@ Select a client's message, click **Scan this page**, review the suggested price 
 
 [Live dashboard](https://commission-tracker-dashboard.onrender.com) · [Chrome Web Store](#) *(add the link once approved)* · [Privacy policy](https://commission-tracker-dashboard.onrender.com/privacy.html)
 
-![Dashboard](docs/screenshots/dashboard.png)
+![Dashboard](docs/screenshots/dashboard.webp)
 
 ## What it is
 
@@ -116,8 +116,10 @@ The text you select is analysed in your browser and never uploaded. Only the tit
 - Free-tier hosting: slow first request after idle; limited storage.
 - The dashboard has no automated UI tests.
 
+## Contributing
+
+Pull requests are welcome. Please open or comment on an issue first, then branch from `develop`. See [CONTRIBUTING.md](CONTRIBUTING.md). Security issues: [SECURITY.md](SECURITY.md).
+
 ## License
 
-[LICENSE]. Third-party names are used only to describe compatibility.
-
-Contact: CommishTracker@proton.me
+MIT. See [LICENSE](LICENSE). Third-party names are used only to describe compatibility.

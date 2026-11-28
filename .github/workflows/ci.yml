@@ -1,0 +1,73 @@
+name: CI
+
+on:
+  pull_request:
+    branches: [develop, main]
+  push:
+    branches: [develop, main]
+
+permissions:
+  contents: read
+
+jobs:
+  extension:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: node --test test/content.test.js test/background.test.js
+        working-directory: extension
+
+  frontend:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm ci
+        working-directory: frontend
+      - run: npm run build
+        working-directory: frontend
+
+  backend:
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:15
+        env:
+          POSTGRES_DB: commissions
+          POSTGRES_USER: commission
+          POSTGRES_PASSWORD: commission_dev
+        ports:
+          - 5433:5432
+        options: >-
+          --health-cmd "pg_isready -U commission -d commissions"
+          --health-interval 5s
+          --health-timeout 3s
+          --health-retries 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 17
+      - run: chmod +x mvnw && ./mvnw -B test
+        working-directory: backend
+
+  linked-issue:
+    # the owner's own PRs (like develop -> main releases) are exempt
+    if: github.event_name == 'pull_request' && github.event.pull_request.author_association != 'OWNER'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Require a linked issue
+        env:
+          BODY: ${{ github.event.pull_request.body }}  # via env, never inline in the script (script injection)
+        run: |
+          if ! printf '%s' "$BODY" | grep -Eqi '(closes|fixes|refs) +#[0-9]+'; then
+            echo "Link an issue in the PR description, for example: Closes #12"
+            echo "Comment on the issue first so we can agree on the approach."
+            exit 1
+          fi

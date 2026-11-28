@@ -5,3 +5,6 @@ dist/
 .idea/
 .vscode/
 .dev-frontend.pid
+*.zip
+*.bundle
+.dev-frontend.pid
